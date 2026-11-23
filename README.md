@@ -407,19 +407,8 @@ Exact variable names are in the comments of each script — this table lists the
 
 ---
 
-## 16. Possible extensions
-
-- Add a **three-LED** (red/amber/green) signal using three GPIO pins.
-- Add an **amber phase** and a return-to-red delay after the ambulance clears the intersection.
-- Log all CAM/SRM messages to a CSV file and plot trajectories.
-- Add message authentication (e.g. HMAC) to prevent spoofed SRMs.
-- Replace the JSON/UDP format with real **ETSI ITS** (CAM/DENM) or **SAE J2735** (BSM/SRM) encodings.
-- Coordinate several RSUs to create a **green wave** along the full corridor.
-
----
-
 ## License and credits
 
-Educational material for the AESM *Vehicle and Infrastructure Connectivity* course, ISAT — Université Bourgogne Europe. Add the license of your choice here (e.g. MIT) if you publish the repository publicly.
+Educational material for the AESM *Vehicle and Infrastructure Connectivity* course, ISAT — Université Bourgogne Europe. MIT
 
 **Contact:** Ahmed-ramzi.houalef@ube.fr
