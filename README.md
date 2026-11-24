@@ -208,7 +208,7 @@ Then open **`http://<your-rsu-hostname>.local:5000`** in a browser on PC B.
 4. Set a unique hostname (replace `XX` with your group number):
 
    ```bash
-   sudo hostnamectl set-hostname rsu_interXX
+   sudo hostnamectl set-hostname rsu-interXX
    ```
 
 5. *(Optional — only with an ISAT Ethernet cable; skip on Wi-Fi/hotspot)* set a static IP using the values recorded on PC A:
@@ -228,11 +228,11 @@ Then open **`http://<your-rsu-hostname>.local:5000`** in a browser on PC B.
 ### 1.3 Enable SSH and VNC and verify remote login
 
 1. On the Pi: `sudo raspi-config` → **Interface Options** → enable **SSH** and **VNC** → `sudo reboot`.
-2. From PC B: `ping rsu_interXX.local`
+2. From PC B: `ping rsu-interXX.local`
 3. Open an SSH session and create a test directory:
 
    ```bash
-   ssh <user>@rsu_interXX.local
+   ssh <user>@rsu-interXX.local
    mkdir test
    ```
 
@@ -269,10 +269,10 @@ try:
     while True:
         GPIO.output(LED_PIN, True)    # LED ON  -> RED (Normal Stop)
         print("Signal: RED (LED ON)")
-        time.sleep(1.5)
+        time.sleep(2)
         GPIO.output(LED_PIN, False)   # LED OFF -> GREEN (Priority Go)
         print("Signal: GREEN (LED OFF)")
-        time.sleep(1.5)
+        time.sleep(2)
 except KeyboardInterrupt:
     print("\nTest stopped.")
 finally:
@@ -364,7 +364,7 @@ Exact variable names are in the comments of each script — this table lists the
 
 | Symptom | Likely cause / fix |
 |---------|--------------------|
-| `ping rsu_interXX.local` fails | mDNS (Avahi) not running or Pi/PC on different subnets. Check `ifconfig`, try the IP address directly. Hostnames with underscores are not valid under RFC 1123 — if resolution fails, use a hyphen (`rsu-interXX`). |
+| `ping rsu-interXX.local` fails | mDNS (Avahi) not running or Pi/PC on different subnets. Check `ifconfig`, try the IP address directly. Hostnames with underscores are not valid under RFC 1123 — if resolution fails, use a hyphen (`rsu-interXX`). |
 | SSH/VNC refused | Re-enable in `sudo raspi-config` → Interface Options, then reboot. |
 | LED never lights | Check polarity (long leg = anode toward the resistor), confirm GPIO 17 / pin 11 and GND / pin 6 with `pinout`. |
 | `RuntimeWarning: channel already in use` | A previous script exited without `GPIO.cleanup()`. Run it again or reboot. |
@@ -393,8 +393,8 @@ Exact variable names are in the comments of each script — this table lists the
 - **Q8.** What do you see after executing `obu_broadcast.py`?
 
 **Part 4**
-- **Q10.** What do you notice when multiple ambulances cross the same RSU?
-- **Q11.** Why bind Flask to `host='0.0.0.0'` instead of `'127.0.0.1'`?
+- **Q9.** What do you notice when multiple ambulances cross the same RSU?
+- **Q10.** Why bind Flask to `host='0.0.0.0'` instead of `'127.0.0.1'`?
 
 ---
 
