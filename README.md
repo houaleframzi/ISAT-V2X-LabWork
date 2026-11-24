@@ -284,8 +284,6 @@ finally:
 
 Run it with `python rsu_signal_test.py`. The LED should blink (ON = red, OFF = green).
 
-> The printed worksheet shows `time.sleep(0)` while Q4 refers to `time.sleep(1.5)`; the version above uses 1.5 s so the blinking is visible.
-
 ---
 
 ## 10. Part 3 — CAM and SRM broadcast
