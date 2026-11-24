@@ -99,7 +99,7 @@ A straight **West–East avenue** is modeled along the X-axis, with `y = 0 m` fo
 | Message | Meaning | Key fields | Why it matters |
 |---------|---------|-----------|----------------|
 | **CAM** — Cooperative Awareness Message | *"Here I am, and here is where I'm going."* Periodic heartbeat at 1–10 Hz. | `vehicle_id`, `x`, `y` (m), `speed_kmh`, `heading` (`+1` East / `-1` West) | Lets the RSU compute the exact distance to the intersection and decide whether the vehicle is approaching or moving away. |
-| **SRM** — Signal Request Message | *"I'm on an active emergency mission — please give me a green light."* | `role` (`'EMERGENCY'`), `siren_active` (`True`/`False`), `requested_phase` (`'GREEN'`) | Distinguishes an active emergency vehicle (sirens on) from ordinary traffic or an inactive unit. |
+| **SRM** — Signal Request Message | *"I'm on an active emergency mission — please give me a green light."* | `siren_active` (`True`/`False`), `requested_phase` (`'GREEN'`) | Distinguishes an active emergency vehicle (sirens on) from ordinary traffic or an inactive unit. |
 
 Both messages are sent over **UDP broadcast**, so one OBU script can reach every group's Raspberry Pi without knowing any IP address.
 
@@ -107,7 +107,7 @@ Illustrative payloads (check `obu_broadcast.py` for the exact format used in the
 
 ```json
 { "type": "CAM", "vehicle_id": "AMB-01", "x": 260.0, "y": 0.0, "speed_kmh": 60, "heading": 1 }
-{ "type": "SRM", "vehicle_id": "AMB-01", "role": "EMERGENCY", "siren_active": true, "requested_phase": "GREEN" }
+{ "type": "SRM", "vehicle_id": "AMB-01", "siren_active": true, "requested_phase": "GREEN" }
 ```
 
 ---
@@ -116,7 +116,7 @@ Illustrative payloads (check `obu_broadcast.py` for the exact format used in the
 
 The RSU grants green only when **all** conditions hold:
 
-1. A valid **SRM** was received with `role == 'EMERGENCY'`, `siren_active == True` and `requested_phase == 'GREEN'`.
+1. A valid **SRM** was received with `siren_active == True` and `requested_phase == 'GREEN'`.
 2. The vehicle is **inside the geofence** (default radius **200 m**): `d = |x_rsu − x_vehicle| ≤ 200`.
 3. The vehicle is **approaching**, not leaving: the heading points toward the RSU, i.e. `heading × (x_rsu − x_vehicle) > 0`.
 
@@ -374,7 +374,7 @@ Exact variable names are in the comments of each script — this table lists the
 | `ModuleNotFoundError: flask` | `pip3 install flask`. |
 | RSU shows no messages | OBU and RSU must be on the same subnet and use the **same UDP port**; some hotspots/switches block broadcast or isolate clients. |
 | Dashboard unreachable | Script not running, wrong hostname, or Flask bound to `127.0.0.1` instead of `0.0.0.0`; port 5000 must be reachable. |
-| Light stays RED although ambulance is in range | Check `siren_active`, `role`, `requested_phase`, `heading` sign and that the vehicle is approaching (not past the RSU). |
+| Light stays RED although ambulance is in range | Check `siren_active`, `requested_phase`, `heading` sign and that the vehicle is approaching (not past the RSU). |
 | Light flickers | Respect the minimum-hold timer; check that several OBUs are not sending conflicting requests. |
 
 ---
