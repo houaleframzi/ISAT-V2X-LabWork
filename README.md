@@ -6,9 +6,12 @@
 A hands-on lab in which an **ambulance (OBU)** broadcasts V2X messages and a **Raspberry Pi roadside unit (RSU)** grants it a green light **only when the ambulance is actually approaching** the intersection. A web-based **Traffic Management Center (TMC)** shows live telemetry and allows manual overrides.
 
 - **Duration:** 3 hours, in pairs (2 computers per group)
-- **Author / instructor:** Dr. A.-R. Houalef (Ahmed-ramzi.houalef@ube.fr)
+- **Author / instructor:** Dr. AR. Houalef (Ahmed-ramzi.houalef@ube.fr)
 - **Academic year:** 2026/2027
+---
+## Disclaimer
 
+This project is a simplified simulation of a V2X system, intended for educational purposes only. It uses a local IP network with UDP broadcast, whereas real V2X deployments rely on dedicated technologies (such as ITS-G5/802.11p or C-V2X), standardized message formats (ETSI/SAE), and security mechanisms. It must not be used in real traffic or safety-critical applications.
 ---
 
 ## Table of contents
@@ -409,6 +412,5 @@ Exact variable names are in the comments of each script — this table lists the
 
 ## License and credits
 
-Educational material for the AESM *Vehicle and Infrastructure Connectivity* course, ISAT — Université Bourgogne Europe. MIT
+Educational material for the AESM *Vehicle and Infrastructure Connectivity* course, ISAT — Université Bourgogne Europe. MIT License
 
-**Contact:** Ahmed-ramzi.houalef@ube.fr
