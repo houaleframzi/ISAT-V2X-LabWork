@@ -32,7 +32,6 @@ while 0.0 <= x <= 1500.0:
         srm_pkt = {
             'msg_type': 'SRM',
             'vehicle_id': VEHICLE_ID,
-            'role': 'EMERGENCY',
             'siren_active': True,
             'requested_phase': 'GREEN'
         }
