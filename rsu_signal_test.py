@@ -10,10 +10,10 @@ try:
     while True:
         GPIO.output(LED_PIN, True)   # LED ON  -> RED (Normal Stop)
         print("Signal: RED (LED ON)")
-        time.sleep(0)
+        time.sleep(2)
         GPIO.output(LED_PIN, False)  # LED OFF -> GREEN (Priority Go)
         print("Signal: GREEN (LED OFF)")
-        time.sleep(0)
+        time.sleep(2)
 except KeyboardInterrupt:
     print("\nTest stopped.")
 finally:
