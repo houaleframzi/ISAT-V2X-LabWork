@@ -8,11 +8,11 @@ A hands-on lab in which an **ambulance (OBU)** broadcasts V2X messages and a **R
 - **Duration:** 3 hours, in pairs (2 computers per group)
 - **Author / instructor:** Dr. AR. Houalef (Ahmed-ramzi.houalef@ube.fr)
 - **Academic year:** 2026/2027
----
-## Disclaimer
+
+### Disclaimer
 
 This project is a simplified simulation of a V2X system, intended for educational purposes only. It uses a local IP network with UDP broadcast, whereas real V2X deployments rely on dedicated technologies (such as ITS-G5/802.11p or C-V2X), standardized message formats (ETSI/SAE), and security mechanisms. It must not be used in real traffic or safety-critical applications.
----
+
 
 ## Table of contents
 
