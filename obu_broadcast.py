@@ -2,7 +2,7 @@ import socket, json, time
 
 BROADCAST_IP = '255.255.255.255'  # Or lab subnet broadcast e.g. '192.168.1.255' #or the RSU IP
 PORT = 5000
-VEHICLE_ID = 'AMB-ramziS' # Replace xx with your group number
+VEHICLE_ID = 'AMB-xx' # Replace xx with your group number
 SEND_SRM = True    # Set False to test a normal car (CAM only -> light stays RED!)
 
 x = 0.0            # Start at x = 0 m on horizontal avenue
